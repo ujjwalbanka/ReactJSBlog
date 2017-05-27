@@ -40,9 +40,12 @@ body{
 	padding: 10px;
 	background: #00b63f;
 }
+.list-image-holder{
+    height: 40%;
+}
 .list-image-holder img{
 	width: 100%;
-    height: 40%;
+    height: 100%;
     object-fit: cover;
     object-position: 0 0;
 }
