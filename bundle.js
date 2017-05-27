@@ -22028,11 +22028,9 @@
 					sectionClassName: 'section',
 					anchors: ['sectionOne', 'sectionTwo', 'sectionThree'],
 					scrollBar: false,
-					navigation: true,
+					navigation: false,
 					verticalAlign: false,
-					sectionPaddingTop: '50px',
-					sectionPaddingBottom: '50px',
-					arrowNavigation: true
+					arrowNavigation: false
 				};
 				return _react2.default.createElement(
 					_reactFullpage.SectionsContainer,
