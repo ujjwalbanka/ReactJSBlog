@@ -69,7 +69,7 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _reducers = __webpack_require__(244);
+	var _reducers = __webpack_require__(207);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -21788,7 +21788,7 @@
 
 	var _PostList2 = _interopRequireDefault(_PostList);
 
-	var _PostDetails = __webpack_require__(242);
+	var _PostDetails = __webpack_require__(205);
 
 	var _PostDetails2 = _interopRequireDefault(_PostDetails);
 
@@ -21996,11 +21996,11 @@
 
 	var _redux = __webpack_require__(166);
 
-	var _reactFullpage = __webpack_require__(204);
+	var _reactFullpageMobileResponsive = __webpack_require__(211);
 
 	var _actions = __webpack_require__(202);
 
-	var _PostListCard = __webpack_require__(241);
+	var _PostListCard = __webpack_require__(204);
 
 	var _PostListCard2 = _interopRequireDefault(_PostListCard);
 
@@ -22033,20 +22033,20 @@
 					arrowNavigation: false
 				};
 				return _react2.default.createElement(
-					_reactFullpage.SectionsContainer,
+					_reactFullpageMobileResponsive.SectionsContainer,
 					options,
 					_react2.default.createElement(
-						_reactFullpage.Section,
+						_reactFullpageMobileResponsive.Section,
 						null,
 						_react2.default.createElement(_PostListCard2.default, { cardId: 'card1' })
 					),
 					_react2.default.createElement(
-						_reactFullpage.Section,
+						_reactFullpageMobileResponsive.Section,
 						null,
 						_react2.default.createElement(_PostListCard2.default, { cardId: 'card2' })
 					),
 					_react2.default.createElement(
-						_reactFullpage.Section,
+						_reactFullpageMobileResponsive.Section,
 						null,
 						_react2.default.createElement(_PostListCard2.default, { cardId: 'card3' })
 					)
@@ -22067,16 +22067,739 @@
 /* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(160);
+
+	var _redux = __webpack_require__(166);
+
+	var _actions = __webpack_require__(202);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostList = function (_Component) {
+		_inherits(PostList, _Component);
+
+		function PostList() {
+			_classCallCheck(this, PostList);
+
+			return _possibleConstructorReturn(this, (PostList.__proto__ || Object.getPrototypeOf(PostList)).apply(this, arguments));
+		}
+
+		_createClass(PostList, [{
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				var _props = this.props,
+				    cardData = _props.cardData,
+				    cardId = _props.cardId;
+
+				return _react2.default.createElement(
+					'div',
+					{ className: 'list-card' },
+					_react2.default.createElement('div', { className: 'list-header' }),
+					_react2.default.createElement(
+						'div',
+						{ className: 'list-image-holder' },
+						_react2.default.createElement('img', { src: cardData[cardId].imgSrc })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'list-data' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'container card-list-detail' },
+							_react2.default.createElement(
+								'p',
+								{ className: 'text-center color-silver' },
+								_react2.default.createElement(
+									'b',
+									null,
+									cardData[cardId].category
+								)
+							),
+							_react2.default.createElement(
+								'h2',
+								{ className: 'card-heading' },
+								cardData[cardId].heading
+							),
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement(
+									'ul',
+									{ className: 'meta-data' },
+									_react2.default.createElement(
+										'li',
+										null,
+										cardData[cardId].time
+									),
+									_react2.default.createElement(
+										'li',
+										{ className: 'meta-pipe' },
+										'|'
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										cardData[cardId].readTime
+									),
+									_react2.default.createElement(
+										'li',
+										{ className: 'meta-pipe' },
+										'|'
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										cardData[cardId].totalReader
+									)
+								)
+							),
+							_react2.default.createElement(
+								'p',
+								{ className: 'color-silver list-description' },
+								cardData[cardId].description
+							),
+							_react2.default.createElement(
+								'div',
+								{
+									className: 'read-more-link cursor-pointer',
+									onClick: function onClick() {
+										return _this2.props.showDeatilsPage(cardId);
+									}
+								},
+								'Read More...'
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'container card-footer col-xs-12' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'footer-image-holder col-xs-2' },
+								_react2.default.createElement('img', {
+									width: '40',
+									height: '40',
+									src: 'https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/s150x150/14052730_1844274775899392_1121993159_a.jpg',
+									alt: ''
+								})
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'item-inner col-xs-10' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'item-title-row' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'author' },
+										_react2.default.createElement(
+											'span',
+											null,
+											'Akanksha Redhu'
+										),
+										_react2.default.createElement('br', null)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'time' },
+									_react2.default.createElement('i', { className: 'fa fa-star-o' }),
+									_react2.default.createElement(
+										'span',
+										null,
+										'19 subscribers'
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return PostList;
+	}(_react.Component);
+
+	function mapStateToProps(state) {
+		var cardData = state.cardData;
+
+		return {
+			cardData: cardData
+		};
+	}
+
+	function mapDispatchToProps(dispatch) {
+		return (0, _redux.bindActionCreators)({ navigateScreen: _actions.navigateScreen, showDeatilsPage: _actions.showDeatilsPage }, dispatch);
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PostList);
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(160);
+
+	var _redux = __webpack_require__(166);
+
+	var _actions = __webpack_require__(202);
+
+	var _PostDetailDescription = __webpack_require__(206);
+
+	var _PostDetailDescription2 = _interopRequireDefault(_PostDetailDescription);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostDetails = function (_Component) {
+		_inherits(PostDetails, _Component);
+
+		function PostDetails() {
+			_classCallCheck(this, PostDetails);
+
+			return _possibleConstructorReturn(this, (PostDetails.__proto__ || Object.getPrototypeOf(PostDetails)).apply(this, arguments));
+		}
+
+		_createClass(PostDetails, [{
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				var cardDetail = this.props.cardDetail;
+
+				return _react2.default.createElement(
+					'div',
+					{ className: 'full-scroll' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'navbar ' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'navbar-inner' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'left sliding', onClick: function onClick() {
+										return _this2.props.navigateScreen('list');
+									} },
+								_react2.default.createElement('span', { className: 'glyphicon glyphicon-arrow-left back link' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'page-content hide-bars-on-scroll' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'page-content-holder' },
+							_react2.default.createElement(
+								'article',
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'list-block media-list' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'detail-image-holder' },
+										_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'header-holder' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'header-heading' },
+											cardDetail.category
+										),
+										_react2.default.createElement(
+											'h2',
+											null,
+											cardDetail.heading
+										),
+										_react2.default.createElement(
+											'div',
+											null,
+											cardDetail.time,
+											'\xA0\xA0\xA0|\xA0\xA0\xA0',
+											cardDetail.readTime,
+											'\xA0\xA0\xA0|\xA0\xA0\xA0',
+											cardDetail.totalReader
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'list-block media-list' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'content-block' },
+											_react2.default.createElement(_PostDetailDescription2.default, null)
+										)
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return PostDetails;
+	}(_react.Component);
+
+	function mapStateToProps(state) {
+		var selectedCardID = state.selectedCardID,
+		    cardData = state.cardData;
+
+
+		var cardDetail = cardData[selectedCardID];
+		return {
+			cardDetail: cardDetail
+		};
+	}
+
+	function mapDispatchToProps(dispatch) {
+		return (0, _redux.bindActionCreators)({ navigateScreen: _actions.navigateScreen }, dispatch);
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PostDetails);
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostDetailDescription = function (_Component) {
+		_inherits(PostDetailDescription, _Component);
+
+		function PostDetailDescription() {
+			_classCallCheck(this, PostDetailDescription);
+
+			return _possibleConstructorReturn(this, (PostDetailDescription.__proto__ || Object.getPrototypeOf(PostDetailDescription)).apply(this, arguments));
+		}
+
+		_createClass(PostDetailDescription, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'content-block' },
+					_react2.default.createElement(
+						'p',
+						{ className: 'list-description padding20' },
+						'While I know \'Dark Horse\' is supposed to invoke a sense of poetry or romance, I\'ve been feeling quite like a horse lately \u2013 with the amount of work that I can sense is going to be piling up in the coming month. I recently got back from a day in Agra to be a part of the launch of a new watch by Ferragamo and am already feeling a bit under the weather. I think it\'s because I know that for the next month or so my body won\'t have the time to fall sick so it thought it might as well get a little rest now. The season is going to be changing soon which is why I thought of going for a slightly more Autumn look for this post. My favorite \u2013 plaid and black and dark lips. The heat is still on so ofcourse I went for a playful skirt, paired it with a buttoned-up plaid shirt, both from ',
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							'SBUYS'
+						),
+						' and the buttery ',
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
+							'Versace'
+						),
+						' Palazzo Empire Bag.'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7068-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt flip2', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11563' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6915-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side twirl', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11566' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6837-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag focus', width: '100%', height: '1178', className: 'alignnone size-full wp-image-11567' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6998-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt fly', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11564' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6856-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side long', width: '100%', height: '1728', className: 'alignnone size-full wp-image-11561' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC100%5-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half front wavy hair', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11571' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6989-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt flip1', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11562' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag cradle', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11570' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7014-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full side', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11565' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6870-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side skirt fly', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11568' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6739-copy.jpg', alt: 'Sbuys | Akanksha Redhu | torso side', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11569' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7106-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag haning fingers', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11572' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6841-copy.jpg', alt: 'Sbuys | Akanksha Redhu | lips bag', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11573' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
+							_react2.default.createElement(
+								'span',
+								{ className: 'pibfi_pinterest ' },
+								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6808-copy.jpg', alt: 'Sbuys | Akanksha Redhu | twirl hair', width: '100%', height: '824', className: 'alignnone size-full wp-image-11574' })
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return PostDetailDescription;
+	}(_react.Component);
+
+	exports.default = PostDetailDescription;
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(166);
+
+	var _ShowScreenReducer = __webpack_require__(208);
+
+	var _ShowScreenReducer2 = _interopRequireDefault(_ShowScreenReducer);
+
+	var _CardDataReducer = __webpack_require__(209);
+
+	var _CardDataReducer2 = _interopRequireDefault(_CardDataReducer);
+
+	var _SelectedCardId = __webpack_require__(210);
+
+	var _SelectedCardId2 = _interopRequireDefault(_SelectedCardId);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var rootReducer = (0, _redux.combineReducers)({
+	  showScreen: _ShowScreenReducer2.default,
+	  cardData: _CardDataReducer2.default,
+	  selectedCardID: _SelectedCardId2.default
+	});
+
+	exports.default = rootReducer;
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _actions.SHOW_SCREEN:
+	      return action.payload;
+	    case _actions.SHOW_POST_DETAIL:
+	      return 'details';
+	    default:
+	      return state;
+	  }
+	};
+
+	var _actions = __webpack_require__(202);
+
+	var INITIAL_STATE = 'home';
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function () {
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+		var action = arguments[1];
+
+		switch (action.type) {
+			default:
+				return state;
+		}
+	};
+
+	var INITIAL_STATE = {
+		card1: {
+			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
+			category: 'FASHION',
+			heading: 'Dark House',
+			time: '19, Sept',
+			readTime: '1 min read',
+			totalReader: '10 readers',
+			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
+			readMoreLink: ''
+		},
+		card2: {
+			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
+			category: 'TECHNOLOGY',
+			heading: 'Dark House',
+			time: '22, Sept',
+			readTime: '10 min read',
+			totalReader: '20 readers',
+			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
+			readMoreLink: ''
+		},
+		card3: {
+			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
+			category: 'FINTECH',
+			heading: 'Dark House',
+			time: '25, May',
+			readTime: '20 min read',
+			totalReader: '50 readers',
+			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
+			readMoreLink: ''
+		}
+	};
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _actions.SHOW_POST_DETAIL:
+	      return action.payload;
+	    default:
+	      return state;
+	  }
+	};
+
+	var _actions = __webpack_require__(202);
+
+	var INITIAL_STATE = '';
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	module.exports = {
-	  SectionsContainer: __webpack_require__(205).default,
-	  Section: __webpack_require__(238).default,
-	  Header: __webpack_require__(239).default,
-	  Footer: __webpack_require__(240).default,
+	  SectionsContainer: __webpack_require__(212).default,
+	  Section: __webpack_require__(245).default,
+	  Header: __webpack_require__(246).default,
+	  Footer: __webpack_require__(247).default,
 	};
 
 
 /***/ }),
-/* 205 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22087,7 +22810,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(206);
+	var _react = __webpack_require__(213);
 
 	var React = _interopRequireWildcard(_react);
 
@@ -22529,16 +23252,16 @@
 	};
 
 /***/ }),
-/* 206 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(207);
+	module.exports = __webpack_require__(214);
 
 
 /***/ }),
-/* 207 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22554,26 +23277,26 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(208);
+	var _assign = __webpack_require__(215);
 
-	var ReactChildren = __webpack_require__(209);
-	var ReactComponent = __webpack_require__(221);
-	var ReactPureComponent = __webpack_require__(224);
-	var ReactClass = __webpack_require__(225);
-	var ReactDOMFactories = __webpack_require__(230);
-	var ReactElement = __webpack_require__(213);
-	var ReactPropTypes = __webpack_require__(235);
-	var ReactVersion = __webpack_require__(236);
+	var ReactChildren = __webpack_require__(216);
+	var ReactComponent = __webpack_require__(228);
+	var ReactPureComponent = __webpack_require__(231);
+	var ReactClass = __webpack_require__(232);
+	var ReactDOMFactories = __webpack_require__(237);
+	var ReactElement = __webpack_require__(220);
+	var ReactPropTypes = __webpack_require__(242);
+	var ReactVersion = __webpack_require__(243);
 
-	var onlyChild = __webpack_require__(237);
-	var warning = __webpack_require__(215);
+	var onlyChild = __webpack_require__(244);
+	var warning = __webpack_require__(222);
 
 	var createElement = ReactElement.createElement;
 	var createFactory = ReactElement.createFactory;
 	var cloneElement = ReactElement.cloneElement;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(231);
+	  var ReactElementValidator = __webpack_require__(238);
 	  createElement = ReactElementValidator.createElement;
 	  createFactory = ReactElementValidator.createFactory;
 	  cloneElement = ReactElementValidator.cloneElement;
@@ -22633,7 +23356,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 208 */
+/* 215 */
 /***/ (function(module, exports) {
 
 	/*
@@ -22729,7 +23452,7 @@
 
 
 /***/ }),
-/* 209 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -22745,11 +23468,11 @@
 
 	'use strict';
 
-	var PooledClass = __webpack_require__(210);
-	var ReactElement = __webpack_require__(213);
+	var PooledClass = __webpack_require__(217);
+	var ReactElement = __webpack_require__(220);
 
-	var emptyFunction = __webpack_require__(216);
-	var traverseAllChildren = __webpack_require__(218);
+	var emptyFunction = __webpack_require__(223);
+	var traverseAllChildren = __webpack_require__(225);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -22925,7 +23648,7 @@
 	module.exports = ReactChildren;
 
 /***/ }),
-/* 210 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22941,9 +23664,9 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var invariant = __webpack_require__(212);
+	var invariant = __webpack_require__(219);
 
 	/**
 	 * Static poolers. Several custom versions for each potential number of
@@ -23052,7 +23775,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 211 */
+/* 218 */
 /***/ (function(module, exports) {
 
 	/**
@@ -23096,7 +23819,7 @@
 	module.exports = reactProdInvariant;
 
 /***/ }),
-/* 212 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23157,7 +23880,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 213 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23173,12 +23896,12 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(208);
+	var _assign = __webpack_require__(215);
 
-	var ReactCurrentOwner = __webpack_require__(214);
+	var ReactCurrentOwner = __webpack_require__(221);
 
-	var warning = __webpack_require__(215);
-	var canDefineProperty = __webpack_require__(217);
+	var warning = __webpack_require__(222);
+	var canDefineProperty = __webpack_require__(224);
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 	// The Symbol used to tag the ReactElement type. If there is no native Symbol
@@ -23511,7 +24234,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 214 */
+/* 221 */
 /***/ (function(module, exports) {
 
 	/**
@@ -23547,7 +24270,7 @@
 	module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 215 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23562,7 +24285,7 @@
 
 	'use strict';
 
-	var emptyFunction = __webpack_require__(216);
+	var emptyFunction = __webpack_require__(223);
 
 	/**
 	 * Similar to invariant but only logs a warning if the condition is not met.
@@ -23619,7 +24342,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 216 */
+/* 223 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -23662,7 +24385,7 @@
 	module.exports = emptyFunction;
 
 /***/ }),
-/* 217 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23692,7 +24415,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 218 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23708,15 +24431,15 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var ReactCurrentOwner = __webpack_require__(214);
-	var ReactElement = __webpack_require__(213);
+	var ReactCurrentOwner = __webpack_require__(221);
+	var ReactElement = __webpack_require__(220);
 
-	var getIteratorFn = __webpack_require__(219);
-	var invariant = __webpack_require__(212);
-	var KeyEscapeUtils = __webpack_require__(220);
-	var warning = __webpack_require__(215);
+	var getIteratorFn = __webpack_require__(226);
+	var invariant = __webpack_require__(219);
+	var KeyEscapeUtils = __webpack_require__(227);
+	var warning = __webpack_require__(222);
 
 	var SEPARATOR = '.';
 	var SUBSEPARATOR = ':';
@@ -23865,7 +24588,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 219 */
+/* 226 */
 /***/ (function(module, exports) {
 
 	/**
@@ -23911,7 +24634,7 @@
 	module.exports = getIteratorFn;
 
 /***/ }),
-/* 220 */
+/* 227 */
 /***/ (function(module, exports) {
 
 	/**
@@ -23975,7 +24698,7 @@
 	module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 221 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23991,14 +24714,14 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var ReactNoopUpdateQueue = __webpack_require__(222);
+	var ReactNoopUpdateQueue = __webpack_require__(229);
 
-	var canDefineProperty = __webpack_require__(217);
-	var emptyObject = __webpack_require__(223);
-	var invariant = __webpack_require__(212);
-	var warning = __webpack_require__(215);
+	var canDefineProperty = __webpack_require__(224);
+	var emptyObject = __webpack_require__(230);
+	var invariant = __webpack_require__(219);
+	var warning = __webpack_require__(222);
 
 	/**
 	 * Base class helpers for the updating state of a component.
@@ -24099,7 +24822,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 222 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24115,7 +24838,7 @@
 
 	'use strict';
 
-	var warning = __webpack_require__(215);
+	var warning = __webpack_require__(222);
 
 	function warnNoop(publicInstance, callerName) {
 	  if (process.env.NODE_ENV !== 'production') {
@@ -24201,7 +24924,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 223 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24226,7 +24949,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 224 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -24242,12 +24965,12 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(208);
+	var _assign = __webpack_require__(215);
 
-	var ReactComponent = __webpack_require__(221);
-	var ReactNoopUpdateQueue = __webpack_require__(222);
+	var ReactComponent = __webpack_require__(228);
+	var ReactNoopUpdateQueue = __webpack_require__(229);
 
-	var emptyObject = __webpack_require__(223);
+	var emptyObject = __webpack_require__(230);
 
 	/**
 	 * Base class helpers for the updating state of a component.
@@ -24273,7 +24996,7 @@
 	module.exports = ReactPureComponent;
 
 /***/ }),
-/* 225 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24289,20 +25012,20 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211),
-	    _assign = __webpack_require__(208);
+	var _prodInvariant = __webpack_require__(218),
+	    _assign = __webpack_require__(215);
 
-	var ReactComponent = __webpack_require__(221);
-	var ReactElement = __webpack_require__(213);
-	var ReactPropTypeLocations = __webpack_require__(226);
-	var ReactPropTypeLocationNames = __webpack_require__(228);
-	var ReactNoopUpdateQueue = __webpack_require__(222);
+	var ReactComponent = __webpack_require__(228);
+	var ReactElement = __webpack_require__(220);
+	var ReactPropTypeLocations = __webpack_require__(233);
+	var ReactPropTypeLocationNames = __webpack_require__(235);
+	var ReactNoopUpdateQueue = __webpack_require__(229);
 
-	var emptyObject = __webpack_require__(223);
-	var invariant = __webpack_require__(212);
-	var keyMirror = __webpack_require__(227);
-	var keyOf = __webpack_require__(229);
-	var warning = __webpack_require__(215);
+	var emptyObject = __webpack_require__(230);
+	var invariant = __webpack_require__(219);
+	var keyMirror = __webpack_require__(234);
+	var keyOf = __webpack_require__(236);
+	var warning = __webpack_require__(222);
 
 	var MIXINS_KEY = keyOf({ mixins: null });
 
@@ -25011,7 +25734,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 226 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -25027,7 +25750,7 @@
 
 	'use strict';
 
-	var keyMirror = __webpack_require__(227);
+	var keyMirror = __webpack_require__(234);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -25038,7 +25761,7 @@
 	module.exports = ReactPropTypeLocations;
 
 /***/ }),
-/* 227 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25054,7 +25777,7 @@
 
 	'use strict';
 
-	var invariant = __webpack_require__(212);
+	var invariant = __webpack_require__(219);
 
 	/**
 	 * Constructs an enumeration with keys equal to their value.
@@ -25091,7 +25814,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 228 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25121,7 +25844,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 229 */
+/* 236 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -25160,7 +25883,7 @@
 	module.exports = keyOf;
 
 /***/ }),
-/* 230 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25176,7 +25899,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(213);
+	var ReactElement = __webpack_require__(220);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -25185,7 +25908,7 @@
 	 */
 	var createDOMFactory = ReactElement.createFactory;
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(231);
+	  var ReactElementValidator = __webpack_require__(238);
 	  createDOMFactory = ReactElementValidator.createFactory;
 	}
 
@@ -25336,7 +26059,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 231 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25359,16 +26082,16 @@
 
 	'use strict';
 
-	var ReactCurrentOwner = __webpack_require__(214);
-	var ReactComponentTreeHook = __webpack_require__(232);
-	var ReactElement = __webpack_require__(213);
-	var ReactPropTypeLocations = __webpack_require__(226);
+	var ReactCurrentOwner = __webpack_require__(221);
+	var ReactComponentTreeHook = __webpack_require__(239);
+	var ReactElement = __webpack_require__(220);
+	var ReactPropTypeLocations = __webpack_require__(233);
 
-	var checkReactTypeSpec = __webpack_require__(233);
+	var checkReactTypeSpec = __webpack_require__(240);
 
-	var canDefineProperty = __webpack_require__(217);
-	var getIteratorFn = __webpack_require__(219);
-	var warning = __webpack_require__(215);
+	var canDefineProperty = __webpack_require__(224);
+	var getIteratorFn = __webpack_require__(226);
+	var warning = __webpack_require__(222);
 
 	function getDeclarationErrorAddendum() {
 	  if (ReactCurrentOwner.current) {
@@ -25570,7 +26293,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 232 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25586,12 +26309,12 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var ReactCurrentOwner = __webpack_require__(214);
+	var ReactCurrentOwner = __webpack_require__(221);
 
-	var invariant = __webpack_require__(212);
-	var warning = __webpack_require__(215);
+	var invariant = __webpack_require__(219);
+	var warning = __webpack_require__(222);
 
 	function isNative(fn) {
 	  // Based on isNative() from Lodash
@@ -25918,7 +26641,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 233 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25934,13 +26657,13 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var ReactPropTypeLocationNames = __webpack_require__(228);
-	var ReactPropTypesSecret = __webpack_require__(234);
+	var ReactPropTypeLocationNames = __webpack_require__(235);
+	var ReactPropTypesSecret = __webpack_require__(241);
 
-	var invariant = __webpack_require__(212);
-	var warning = __webpack_require__(215);
+	var invariant = __webpack_require__(219);
+	var warning = __webpack_require__(222);
 
 	var ReactComponentTreeHook;
 
@@ -25950,7 +26673,7 @@
 	  // https://github.com/facebook/react/issues/7240
 	  // Remove the inline requires when we don't need them anymore:
 	  // https://github.com/facebook/react/pull/7178
-	  ReactComponentTreeHook = __webpack_require__(232);
+	  ReactComponentTreeHook = __webpack_require__(239);
 	}
 
 	var loggedTypeFailures = {};
@@ -25992,7 +26715,7 @@
 
 	        if (process.env.NODE_ENV !== 'production') {
 	          if (!ReactComponentTreeHook) {
-	            ReactComponentTreeHook = __webpack_require__(232);
+	            ReactComponentTreeHook = __webpack_require__(239);
 	          }
 	          if (debugID !== null) {
 	            componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -26011,7 +26734,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 234 */
+/* 241 */
 /***/ (function(module, exports) {
 
 	/**
@@ -26032,7 +26755,7 @@
 	module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 235 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26048,13 +26771,13 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(213);
-	var ReactPropTypeLocationNames = __webpack_require__(228);
-	var ReactPropTypesSecret = __webpack_require__(234);
+	var ReactElement = __webpack_require__(220);
+	var ReactPropTypeLocationNames = __webpack_require__(235);
+	var ReactPropTypesSecret = __webpack_require__(241);
 
-	var emptyFunction = __webpack_require__(216);
-	var getIteratorFn = __webpack_require__(219);
-	var warning = __webpack_require__(215);
+	var emptyFunction = __webpack_require__(223);
+	var getIteratorFn = __webpack_require__(226);
+	var warning = __webpack_require__(222);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -26469,7 +27192,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 236 */
+/* 243 */
 /***/ (function(module, exports) {
 
 	/**
@@ -26488,7 +27211,7 @@
 	module.exports = '15.3.2';
 
 /***/ }),
-/* 237 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26503,11 +27226,11 @@
 	 */
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(211);
+	var _prodInvariant = __webpack_require__(218);
 
-	var ReactElement = __webpack_require__(213);
+	var ReactElement = __webpack_require__(220);
 
-	var invariant = __webpack_require__(212);
+	var invariant = __webpack_require__(219);
 
 	/**
 	 * Returns the first child in a collection of children and verifies that there
@@ -26532,7 +27255,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 238 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26543,7 +27266,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(206);
+	var _react = __webpack_require__(213);
 
 	var React = _interopRequireWildcard(_react);
 
@@ -26652,7 +27375,7 @@
 	exports.default = Section;
 
 /***/ }),
-/* 239 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26663,7 +27386,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(206);
+	var _react = __webpack_require__(213);
 
 	var React = _interopRequireWildcard(_react);
 
@@ -26708,7 +27431,7 @@
 	exports.default = Header;
 
 /***/ }),
-/* 240 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26719,7 +27442,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(206);
+	var _react = __webpack_require__(213);
 
 	var React = _interopRequireWildcard(_react);
 
@@ -26762,729 +27485,6 @@
 	}(React.Component);
 
 	exports.default = Footer;
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(160);
-
-	var _redux = __webpack_require__(166);
-
-	var _actions = __webpack_require__(202);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var PostList = function (_Component) {
-		_inherits(PostList, _Component);
-
-		function PostList() {
-			_classCallCheck(this, PostList);
-
-			return _possibleConstructorReturn(this, (PostList.__proto__ || Object.getPrototypeOf(PostList)).apply(this, arguments));
-		}
-
-		_createClass(PostList, [{
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-
-				var _props = this.props,
-				    cardData = _props.cardData,
-				    cardId = _props.cardId;
-
-				return _react2.default.createElement(
-					'div',
-					{ className: 'list-card' },
-					_react2.default.createElement('div', { className: 'list-header' }),
-					_react2.default.createElement(
-						'div',
-						{ className: 'list-image-holder' },
-						_react2.default.createElement('img', { src: cardData[cardId].imgSrc })
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'list-data' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container card-list-detail' },
-							_react2.default.createElement(
-								'p',
-								{ className: 'text-center color-silver' },
-								_react2.default.createElement(
-									'b',
-									null,
-									cardData[cardId].category
-								)
-							),
-							_react2.default.createElement(
-								'h2',
-								{ className: 'card-heading' },
-								cardData[cardId].heading
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement(
-									'ul',
-									{ className: 'meta-data' },
-									_react2.default.createElement(
-										'li',
-										null,
-										cardData[cardId].time
-									),
-									_react2.default.createElement(
-										'li',
-										{ className: 'meta-pipe' },
-										'|'
-									),
-									_react2.default.createElement(
-										'li',
-										null,
-										cardData[cardId].readTime
-									),
-									_react2.default.createElement(
-										'li',
-										{ className: 'meta-pipe' },
-										'|'
-									),
-									_react2.default.createElement(
-										'li',
-										null,
-										cardData[cardId].totalReader
-									)
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								{ className: 'color-silver list-description' },
-								cardData[cardId].description
-							),
-							_react2.default.createElement(
-								'div',
-								{
-									className: 'read-more-link cursor-pointer',
-									onClick: function onClick() {
-										return _this2.props.showDeatilsPage(cardId);
-									}
-								},
-								'Read More...'
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'container card-footer col-xs-12' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'footer-image-holder col-xs-2' },
-								_react2.default.createElement('img', {
-									width: '40',
-									height: '40',
-									src: 'https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/s150x150/14052730_1844274775899392_1121993159_a.jpg',
-									alt: ''
-								})
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'item-inner col-xs-10' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'item-title-row' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'author' },
-										_react2.default.createElement(
-											'span',
-											null,
-											'Akanksha Redhu'
-										),
-										_react2.default.createElement('br', null)
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'time' },
-									_react2.default.createElement('i', { className: 'fa fa-star-o' }),
-									_react2.default.createElement(
-										'span',
-										null,
-										'19 subscribers'
-									)
-								)
-							)
-						)
-					)
-				);
-			}
-		}]);
-
-		return PostList;
-	}(_react.Component);
-
-	function mapStateToProps(state) {
-		var cardData = state.cardData;
-
-		return {
-			cardData: cardData
-		};
-	}
-
-	function mapDispatchToProps(dispatch) {
-		return (0, _redux.bindActionCreators)({ navigateScreen: _actions.navigateScreen, showDeatilsPage: _actions.showDeatilsPage }, dispatch);
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PostList);
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(160);
-
-	var _redux = __webpack_require__(166);
-
-	var _actions = __webpack_require__(202);
-
-	var _PostDetailDescription = __webpack_require__(243);
-
-	var _PostDetailDescription2 = _interopRequireDefault(_PostDetailDescription);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var PostDetails = function (_Component) {
-		_inherits(PostDetails, _Component);
-
-		function PostDetails() {
-			_classCallCheck(this, PostDetails);
-
-			return _possibleConstructorReturn(this, (PostDetails.__proto__ || Object.getPrototypeOf(PostDetails)).apply(this, arguments));
-		}
-
-		_createClass(PostDetails, [{
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-
-				var cardDetail = this.props.cardDetail;
-
-				return _react2.default.createElement(
-					'div',
-					{ className: 'full-scroll' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'navbar ' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'navbar-inner' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'left sliding', onClick: function onClick() {
-										return _this2.props.navigateScreen('list');
-									} },
-								_react2.default.createElement('span', { className: 'glyphicon glyphicon-arrow-left back link' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'page-content hide-bars-on-scroll' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'page-content-holder' },
-							_react2.default.createElement(
-								'article',
-								null,
-								_react2.default.createElement(
-									'div',
-									{ className: 'list-block media-list' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'detail-image-holder' },
-										_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'header-holder' },
-										_react2.default.createElement(
-											'div',
-											{ className: 'header-heading' },
-											cardDetail.category
-										),
-										_react2.default.createElement(
-											'h2',
-											null,
-											cardDetail.heading
-										),
-										_react2.default.createElement(
-											'div',
-											null,
-											cardDetail.time,
-											'\xA0\xA0\xA0|\xA0\xA0\xA0',
-											cardDetail.readTime,
-											'\xA0\xA0\xA0|\xA0\xA0\xA0',
-											cardDetail.totalReader
-										)
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'list-block media-list' },
-										_react2.default.createElement(
-											'div',
-											{ className: 'content-block' },
-											_react2.default.createElement(_PostDetailDescription2.default, null)
-										)
-									)
-								)
-							)
-						)
-					)
-				);
-			}
-		}]);
-
-		return PostDetails;
-	}(_react.Component);
-
-	function mapStateToProps(state) {
-		var selectedCardID = state.selectedCardID,
-		    cardData = state.cardData;
-
-
-		var cardDetail = cardData[selectedCardID];
-		return {
-			cardDetail: cardDetail
-		};
-	}
-
-	function mapDispatchToProps(dispatch) {
-		return (0, _redux.bindActionCreators)({ navigateScreen: _actions.navigateScreen }, dispatch);
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PostDetails);
-
-/***/ }),
-/* 243 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var PostDetailDescription = function (_Component) {
-		_inherits(PostDetailDescription, _Component);
-
-		function PostDetailDescription() {
-			_classCallCheck(this, PostDetailDescription);
-
-			return _possibleConstructorReturn(this, (PostDetailDescription.__proto__ || Object.getPrototypeOf(PostDetailDescription)).apply(this, arguments));
-		}
-
-		_createClass(PostDetailDescription, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: 'content-block' },
-					_react2.default.createElement(
-						'p',
-						{ className: 'list-description padding20' },
-						'While I know \'Dark Horse\' is supposed to invoke a sense of poetry or romance, I\'ve been feeling quite like a horse lately \u2013 with the amount of work that I can sense is going to be piling up in the coming month. I recently got back from a day in Agra to be a part of the launch of a new watch by Ferragamo and am already feeling a bit under the weather. I think it\'s because I know that for the next month or so my body won\'t have the time to fall sick so it thought it might as well get a little rest now. The season is going to be changing soon which is why I thought of going for a slightly more Autumn look for this post. My favorite \u2013 plaid and black and dark lips. The heat is still on so ofcourse I went for a playful skirt, paired it with a buttoned-up plaid shirt, both from ',
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							'SBUYS'
-						),
-						' and the buttery ',
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
-							'Versace'
-						),
-						' Palazzo Empire Bag.'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7068-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt flip2', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11563' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6915-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side twirl', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11566' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6837-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag focus', width: '100%', height: '1178', className: 'alignnone size-full wp-image-11567' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6998-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt fly', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11564' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6856-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side long', width: '100%', height: '1728', className: 'alignnone size-full wp-image-11561' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC100%5-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half front wavy hair', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11571' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6989-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full front skirt flip1', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11562' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag cradle', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11570' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7014-copy.jpg', alt: 'Sbuys | Akanksha Redhu | full side', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11565' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6870-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side skirt fly', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11568' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6739-copy.jpg', alt: 'Sbuys | Akanksha Redhu | torso side', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11569' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC7106-copy.jpg', alt: 'Sbuys | Akanksha Redhu | half side bag haning fingers', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11572' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.versace.com/international/en/home/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6841-copy.jpg', alt: 'Sbuys | Akanksha Redhu | lips bag', width: '100%', height: '1011', className: 'alignnone size-full wp-image-11573' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: 'http://www.sbuys.in/', target: 'blank', rel: 'noopener noreferrer' },
-							_react2.default.createElement(
-								'span',
-								{ className: 'pibfi_pinterest ' },
-								_react2.default.createElement('img', { src: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6808-copy.jpg', alt: 'Sbuys | Akanksha Redhu | twirl hair', width: '100%', height: '824', className: 'alignnone size-full wp-image-11574' })
-							)
-						)
-					)
-				);
-			}
-		}]);
-
-		return PostDetailDescription;
-	}(_react.Component);
-
-	exports.default = PostDetailDescription;
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(166);
-
-	var _ShowScreenReducer = __webpack_require__(245);
-
-	var _ShowScreenReducer2 = _interopRequireDefault(_ShowScreenReducer);
-
-	var _CardDataReducer = __webpack_require__(246);
-
-	var _CardDataReducer2 = _interopRequireDefault(_CardDataReducer);
-
-	var _SelectedCardId = __webpack_require__(247);
-
-	var _SelectedCardId2 = _interopRequireDefault(_SelectedCardId);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rootReducer = (0, _redux.combineReducers)({
-	  showScreen: _ShowScreenReducer2.default,
-	  cardData: _CardDataReducer2.default,
-	  selectedCardID: _SelectedCardId2.default
-	});
-
-	exports.default = rootReducer;
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _actions.SHOW_SCREEN:
-	      return action.payload;
-	    case _actions.SHOW_POST_DETAIL:
-	      return 'details';
-	    default:
-	      return state;
-	  }
-	};
-
-	var _actions = __webpack_require__(202);
-
-	var INITIAL_STATE = 'home';
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function () {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-		var action = arguments[1];
-
-		switch (action.type) {
-			default:
-				return state;
-		}
-	};
-
-	var INITIAL_STATE = {
-		card1: {
-			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
-			category: 'FASHION',
-			heading: 'Dark House',
-			time: '19, Sept',
-			readTime: '1 min read',
-			totalReader: '10 readers',
-			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
-			readMoreLink: ''
-		},
-		card2: {
-			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
-			category: 'TECHNOLOGY',
-			heading: 'Dark House',
-			time: '22, Sept',
-			readTime: '10 min read',
-			totalReader: '20 readers',
-			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
-			readMoreLink: ''
-		},
-		card3: {
-			imgSrc: 'http://akanksharedhu.com/wp-content/uploads/2016/09/DSC6815-copy.jpg',
-			category: 'FINTECH',
-			heading: 'Dark House',
-			time: '25, May',
-			readTime: '20 min read',
-			totalReader: '50 readers',
-			description: 'While I know Dark Horse is supposed to invoke a sense of poetry or romance, Ive been feeling quite like a horse lately – with the amount of work that I can sense is going to be piling up in the coming month. ',
-			readMoreLink: ''
-		}
-	};
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _actions.SHOW_POST_DETAIL:
-	      return action.payload;
-	    default:
-	      return state;
-	  }
-	};
-
-	var _actions = __webpack_require__(202);
-
-	var INITIAL_STATE = '';
 
 /***/ })
 /******/ ]);

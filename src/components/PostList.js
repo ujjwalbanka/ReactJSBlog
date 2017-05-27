@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SectionsContainer, Section } from 'react-fullpage';
+import { SectionsContainer, Section } from 'react-fullpage-mobile-responsive';
 import { navigateScreen } from '../actions';
 import PostListCard from './PostListCard';
 
