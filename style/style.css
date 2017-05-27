@@ -14,6 +14,11 @@ body{
 	position: relative;
 	z-index: 1;
 }
+.full-scroll{
+    overflow-y: scroll;
+    height: 100%;
+    position: absolute;
+}
 .list-description{
     color: #666;
     margin: 10px auto;

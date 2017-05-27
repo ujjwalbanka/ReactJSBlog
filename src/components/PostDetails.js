@@ -8,7 +8,7 @@ class PostDetails extends Component {
 	render() {
 		const { cardDetail } = this.props;
 		return (
-			<div>
+			<div className='full-scroll'>
 				<div className="navbar ">
 					<div className="navbar-inner">
 						<div className="left sliding" onClick={() => this.props.navigateScreen('list')}>

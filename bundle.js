@@ -27005,7 +27005,7 @@
 
 				return _react2.default.createElement(
 					'div',
-					null,
+					{ className: 'full-scroll' },
 					_react2.default.createElement(
 						'div',
 						{ className: 'navbar ' },
