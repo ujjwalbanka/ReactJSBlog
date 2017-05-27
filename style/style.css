@@ -23,7 +23,7 @@ body{
     color: #666;
     margin: 10px auto;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
 }
 .logo-image{
@@ -121,10 +121,9 @@ body{
 .author{
 	color: #000;
     text-transform: none;
-    margin-top: 10px;
 }
 .author span{
-	font-size: 12px;
+	font-size: 10px;
     color: #01b73f;
     text-transform: uppercase;
     font-weight: 600;
@@ -132,7 +131,7 @@ body{
 }
 .time{
 	margin-top: -26px;
-    font-size: 18px;
+    font-size: 10px;
     color: #000;
     float: right;
 }
