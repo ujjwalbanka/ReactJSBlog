@@ -1,6 +1,9 @@
 body{
 	font-family: 'Lato', sans-serif;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 .landing-page{
 	background: url(http://modusapp.in/img/bg_intro.png) rgba(0,0,0,0.1) no-repeat;
 	background-size: cover;
@@ -10,6 +13,13 @@ body{
 	height: 100vh;
 	position: relative;
 	z-index: 1;
+}
+.list-description{
+    color: #666;
+    margin: 10px auto;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
 }
 .logo-image{
 	margin: auto auto;
@@ -42,11 +52,8 @@ body{
 .color-silver{
 	color: #666;
 }
-.list-description{
-    margin: 10px auto;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 24px;
+.padding20{
+    padding: 20px;
 }
 .meta-data{
 	list-style: none;
@@ -152,7 +159,7 @@ body{
     object-position: 0 0;
 }
 .header-holder{
-    width:90%;
+    width:100%;
     height:280px;
     color: #fff;
     background:rgba(0,0,0,0.5); 

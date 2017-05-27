@@ -20,7 +20,7 @@ class HomeScreen extends Component {
 					<p>A one of a kind platform to <br />discover, create manage blogs </p>
 				</div>
 				<div 
-					className="app-button"
+					className="app-button cursor-pointer"
 					onClick={() => this.props.navigateScreen('list')}
 				>
 					<p>Start Your Journey</p>

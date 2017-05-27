@@ -8,9 +8,7 @@ class PostList extends Component {
 		const { cardData, cardId } = this.props;
 		return (
 			<div className='list-card'>
-				<div className='list-header'>
-
-				</div>
+				<div className='list-header' />
 				<div className='list-image-holder'>
 					<img src={cardData[cardId].imgSrc} />
 				</div>
@@ -31,7 +29,7 @@ class PostList extends Component {
 							{cardData[cardId].description}
 						</p>
 						<div 
-							className='read-more-link'
+							className='read-more-link cursor-pointer'
 							onClick={() => this.props.showDeatilsPage(cardId)}
 						>
 							Read More...

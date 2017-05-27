@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SectionsContainer, Section } from 'react-fullpage';
+import { ScrollPage, Section } from 'react-scrollpage';
 import { navigateScreen } from '../actions';
 import PostListCard from './PostListCard';
 
 class PostList extends Component {
 	render() {
 		const options = {
-			sectionClassName: 'section',
-			anchors: ['sectionOne', 'sectionTwo', 'sectionThree'],
-			scrollBar: false,
-			navigation: false,
-			verticalAlign: true,
-			arrowNavigation: false
+			curPage: 1,           // inital page number, most 1
+			totalPage: 4,         // totoal page number
+			delay: 1200           // delay between two scoll animation
 		};
 		return (
-			<SectionsContainer {...options}>
+			<ScrollPage {...options} >
 				<Section>
 					<PostListCard cardId={'card1'} />
 				</Section>
@@ -26,7 +23,10 @@ class PostList extends Component {
 				<Section>
 					<PostListCard cardId={'card3'} />
 				</Section>
-			</SectionsContainer>
+				<Section>
+					<PostListCard cardId={'card3'} />
+				</Section>
+			</ScrollPage>
 			);
 	}
 }
