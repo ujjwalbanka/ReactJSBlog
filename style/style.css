@@ -1,0 +1,183 @@
+body{
+	font-family: 'Lato', sans-serif;
+}
+.landing-page{
+	background: url(http://modusapp.in/img/bg_intro.png) rgba(0,0,0,0.1) no-repeat;
+	background-size: cover;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+	height: 100vh;
+	position: relative;
+	z-index: 1;
+}
+.logo-image{
+	margin: auto auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: calc(50% - 100px);
+}
+.heading{
+	    color: #ffffff;
+    text-align: center;
+}
+.app-button{
+
+}
+.app-button p{
+	text-align: center;
+	color: #ffffff;
+	padding: 10px;
+	background: #00b63f;
+}
+.list-image-holder img{
+	width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    object-position: 0 0;
+}
+.list-data{
+    height: 60vh;
+}
+.color-silver{
+	color: #666;
+}
+.list-description{
+    margin: 10px auto;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+}
+.meta-data{
+	list-style: none;
+	padding: 0;
+}
+.meta-data li{
+	display: inline;
+	font-weight: 400;
+    color: #666;
+    font-size: 12px;
+}
+.meta-data li.meta-pipe{
+	padding: 0px 4px;
+}
+.card-heading{
+	font-size: 24px;
+    font-weight: 600;
+    letter-spacing: ;
+    margin: 0px;
+    text-transform: capitalize;
+    line-height: 32px;
+}
+.read-more-link{
+	color: #01b73f;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    font-style: italic;
+    font-weight: 300;
+}
+.list-card{
+	height: 100vh;
+}
+.card-footer{
+	border-top: 1px solid #000;
+    height: 15%;
+}
+.card-list-detail{
+    height: 85%;
+}
+.footer-image-holder{
+	padding-top: 14px;
+    padding-bottom: 14px;
+}
+.footer-image-holder img{
+	border-radius: 100%;
+}
+.item-inner{
+	color: #000;
+    text-transform: none;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.item-timeline-row{
+	padding-right: 26px;
+}
+.author{
+	color: #000;
+    text-transform: none;
+    margin-top: 10px;
+}
+.author span{
+	font-size: 12px;
+    color: #01b73f;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.time{
+	margin-top: -26px;
+    font-size: 18px;
+    color: #000;
+    float: right;
+}
+.navbar{
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 1; 
+}
+.back.link{
+    color: #fff;
+    padding: 14px 16px;
+    min-width: 48px;
+}
+.page-content{
+    padding: 0px;
+    background: #000;
+}
+.page-content-holder{
+    background: #fff;
+    padding-bottom: 10px;
+}
+.detail-image-holder{
+    height: 280px;
+    width: 100%;
+}
+.detail-image-holder img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+.header-holder{
+    width:90%;
+    height:280px;
+    color: #fff;
+    background:rgba(0,0,0,0.5); 
+    position:absolute; 
+    padding-left:5%; 
+    padding-right:5%; 
+    left:0; 
+    top:0; 
+    text-align:center;"
+}
+.header-heading{
+    margin: 5px auto;    
+    font-size: 12px;    
+    text-align: center;    
+    color: #fff;    
+    text-transform: uppercase;    
+    font-weight: 600;    
+    letter-spacing: 1px;   
+    margin-top:80px
+}
+.header-heading h2{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0px;
+    line-height: 32px;
+    color:#fff;
+    margin-bottom:25px
+}
