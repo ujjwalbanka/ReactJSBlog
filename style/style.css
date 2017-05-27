@@ -42,12 +42,12 @@ body{
 }
 .list-image-holder img{
 	width: 100%;
-    height: 40vh;
+    height: 40%;
     object-fit: cover;
     object-position: 0 0;
 }
 .list-data{
-    height: 60vh;
+    height: 60%;
 }
 .color-silver{
 	color: #666;
@@ -85,7 +85,7 @@ body{
     font-weight: 300;
 }
 .list-card{
-	height: 100vh;
+	height: 100%;
 }
 .card-footer{
 	border-top: 1px solid #000;
