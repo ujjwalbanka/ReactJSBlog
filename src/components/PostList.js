@@ -8,15 +8,13 @@ import PostListCard from './PostListCard';
 class PostList extends Component {
 	render() {
 		const options = {
-	      sectionClassName:     'section',
-	      anchors:              ['sectionOne', 'sectionTwo', 'sectionThree'],
-	      scrollBar:            false,
-	      navigation:           true,
-	      verticalAlign:        false,
-	      sectionPaddingTop:    '50px',
-	      sectionPaddingBottom: '50px',
-	      arrowNavigation:      true
-	    };
+			sectionClassName: 'section',
+			anchors: ['sectionOne', 'sectionTwo', 'sectionThree'],
+			scrollBar: false,
+			navigation: false,
+			verticalAlign: false,
+			arrowNavigation: false
+		};
 		return (
 			<SectionsContainer {...options}> 
 				<Section>
