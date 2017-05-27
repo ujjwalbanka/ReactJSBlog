@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ReactJs Photography Blog App",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node server.js"
   },
   "author": "Ujjwal Banka",
   "license": "ISC",
